@@ -2,12 +2,12 @@
 
 ## HOMEPAGE
 ![HOMEPAGE](demo_images/homepage.png)
-## REGISTRATION
+## REGISTRATION PAGE
 ![REGISTRATION](demo_images/registration.png)
-## REGISTRATION-SUCCESS
+## REGISTRATION-SUCCESS PAGE
 ![REGISTRATION-SUCCESS](demo_images/registration-success.png)
-## LOGIN
+## LOGIN PAGE
 ![LOGIN](demo_images/login.png)
-## DASHBOARD
+## DASHBOARD PAGE
 ![DASHBOARD](demo_images/dashboard.png)
 
