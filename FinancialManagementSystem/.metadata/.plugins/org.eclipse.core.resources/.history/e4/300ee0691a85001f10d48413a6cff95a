@@ -1,0 +1,30 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Financial Management - Home</title>
+    <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/home.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to FinTrack</h1>
+        <nav>
+            <a href = "<%= request.getContextPath()%>/login.jsp" class="signin">Sign in</a>
+            <a href = "<%= request.getContextPath()%>/register.jsp" class="signup">Sign up</a>
+        </nav>
+    </header>
+    
+
+
+    
+    <section class="features">
+        <h2>Manage Your Finances with Ease</h2>
+        <p>Track your expenses, set budgets, and manage your financial goals in one place.</p>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 FinTrack. All rights reserved.</p>
+    </footer>
+</body>
+</html>

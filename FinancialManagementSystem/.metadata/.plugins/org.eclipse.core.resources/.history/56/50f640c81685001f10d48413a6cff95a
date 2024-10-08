@@ -1,0 +1,27 @@
+package com.rath.system.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class LoginDao {
+
+	public boolean checkUser(String userOrEmail, String password) {
+		try (Connection con = DBConnection.getConnection()) {
+			String query = "SELECT * FROM users WHERE (username = ?  OR email = ?) AND (password = ?)";
+			PreparedStatement ps = con.prepareStatement(query);
+			ps.setString(1, userOrEmail);
+			ps.setString(2, userOrEmail);
+			ps.setString(3, password);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				return true;
+			}
+			return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+}

@@ -1,0 +1,47 @@
+package com.rath.system.controller;
+
+import java.io.IOException;
+
+import com.mysql.cj.util.StringUtils;
+import com.rath.system.dao.LoginDao;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+@WebServlet("/login")
+public class LoginServlet extends HttpServlet {
+
+	private LoginDao loginDao = new LoginDao();
+
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String username = request.getParameter("username");
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+
+		boolean isValidUser = false;
+
+		if (StringUtils.isEmptyOrWhitespaceOnly(email) && !StringUtils.isEmptyOrWhitespaceOnly(username)) {
+			isValidUser = authenticateUser(username, email, password);
+		}
+
+		if (!StringUtils.isEmptyOrWhitespaceOnly(email) && StringUtils.isEmptyOrWhitespaceOnly(username)) {
+			isValidUser = authenticateUser(username, email, password);
+		}
+
+		if (isValidUser) {
+			response.sendRedirect("/WEB-INF/home.jsp");
+		} else {
+			response.sendRedirect("/WEB-INF/login.jsp?error=invalidCredentials");
+		}
+	}
+
+	private boolean authenticateUser(String username, String email, String password) {
+		return loginDao.checkUser(username, email, password);
+	}
+}

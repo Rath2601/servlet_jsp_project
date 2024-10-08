@@ -1,0 +1,41 @@
+package com.rath.system.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.rath.system.model.Users;
+
+public class RegisterDao {
+	String INSERT_USERS_SQL = "INSERT INTO users"
+			+ "  (id, name, username, email, password, mobile, location) VALUES " + " (?, ?, ?, ?, ?, ?, ?);";
+
+	int result = 0;
+	
+	public boolean saveUser(Users user) {
+        try (Connection con = DBConnection.getConnection()) {
+        	
+        	 String query = "SELECT * FROM users WHERE (email = ? OR ";
+             PreparedStatement ps = con.prepareStatement(query);
+             ps.setString(1, user.getEmail());
+             ResultSet rs = ps.executeQuery();
+             if (rs.next()) {
+            	 return false;
+             }
+        	
+//            String insertQuery = "INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)";
+            PreparedStatement insert = con.prepareStatement(INSERT_USERS_SQL);
+            insert.setString(1, user.getName());
+            insert.setString(2, user.getEmail());
+            insert.setString(3, user.getPassword());
+//            insert.setString(4, user.getRole());
+            insert.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+	
+}

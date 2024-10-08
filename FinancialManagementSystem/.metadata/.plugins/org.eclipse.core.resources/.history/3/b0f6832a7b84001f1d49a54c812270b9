@@ -1,0 +1,38 @@
+package com.rath.system.controller;
+
+import java.io.IOException;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+@WebServlet("/login")
+public class LoginServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String userOrEmail = request.getParameter("userOrEmail");
+        String password = request.getParameter("password");
+
+        // Call a method to authenticate the user based on username/email and password
+        boolean isValidUser = authenticateUser(userOrEmail, password);
+
+        if (isValidUser) {
+            // Redirect to the home page or dashboard
+            response.sendRedirect("home.jsp");
+        } else {
+            // Redirect back to login page with an error message
+            response.sendRedirect("login.jsp?error=invalidCredentials");
+        }
+    }
+
+    private boolean authenticateUser(String userOrEmail, String password) {
+        // Logic to validate user credentials against the database
+        // Example: Check if username/email and password match a record in the database
+        // Return true if valid, otherwise false
+        return true; // Replace with actual validation logic
+    }
+}

@@ -1,0 +1,9 @@
+package com.rath.system.dao;
+
+public class RegisterDao {
+	String INSERT_USERS_SQL = "INSERT INTO employee" +
+            "  (id, first_name, last_name, username, password, address, contact) VALUES " +
+            " (?, ?, ?, ?, ?,?,?);";
+
+        int result = 0;
+}

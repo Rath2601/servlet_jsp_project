@@ -1,0 +1,13 @@
+1728276433102	Move 'home.jsp' to 'WEB-INF'
+1728278274096	Move 'registrationsuccess.jsp' to 'WEB-INF'
+1728279679026	Rename resource 'registrationsuccess.jsp'
+1728321086499	Move 'register.jsp' to 'webapp'
+1728321230289	Move 'registerstyle.css' to 'css-non-secured'
+1728322055739	Move 'registration-success.jsp' to 'webapp'
+1728350526517	Move 'login.jsp' to 'webapp'
+1728350536618	Move 'loginstyle.css' to 'webapp'
+1728350544055	Move 'loginstyle.css' to 'css-non-secured'
+1728350551597	Move 'successstyle.css' to 'css-non-secured'
+1728352850676	Move 'home.jsp' to 'webapp'
+1728352873842	Delete element
+1728352880715	Delete element

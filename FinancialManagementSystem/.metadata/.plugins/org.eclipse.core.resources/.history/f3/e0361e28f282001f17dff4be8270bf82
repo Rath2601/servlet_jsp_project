@@ -1,0 +1,9 @@
+package com.rath.system.model;
+
+public class Users {
+
+	private String username;
+	private String password;
+	private String mobile;
+	private String location;
+}

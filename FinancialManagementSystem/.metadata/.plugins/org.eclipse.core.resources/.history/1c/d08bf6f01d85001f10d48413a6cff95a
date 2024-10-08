@@ -1,0 +1,44 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to FinMan</title>
+    <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css-non-secured/home.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to FinMan</h1>
+        <nav class="user-auth">
+             <a href = "<%= request.getContextPath()%>/login.jsp" class="signin">Sign in</a>
+            <a href = "<%= request.getContextPath()%>/register.jsp" class="signup">Sign up</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="intro">
+            <h2>Manage Your Finances with Ease</h2>
+            <p>Track your expenses, set budgets, and manage your financial goals in one place.</p>
+        </section>
+
+        <section class="articles">
+            <h2>Latest Articles</h2>
+            <article>
+                <h3>How to Create a Budget and Stick to It</h3>
+                <p>Learn the best strategies for creating and maintaining a budget to achieve your financial goals.</p>
+                <a href="article1.jsp">Read More</a>
+            </article>
+            <article>
+                <h3>Top 5 Tips for Managing Your Monthly Expenses</h3>
+                <p>Discover practical tips for cutting down your expenses and saving more each month.</p>
+                <a href="article2.jsp">Read More</a>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 FinTrack. All rights reserved.</p>
+    </footer>
+</body>
+</html>

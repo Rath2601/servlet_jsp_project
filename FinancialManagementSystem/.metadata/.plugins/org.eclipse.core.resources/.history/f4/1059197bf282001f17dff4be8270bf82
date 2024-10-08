@@ -1,0 +1,5 @@
+package com.rath.system.dao;
+
+public class DBConnection {
+
+}
